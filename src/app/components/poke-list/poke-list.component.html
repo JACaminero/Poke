@@ -1,0 +1,62 @@
+<app-create-poke [pokeFav]="notifyObj"></app-create-poke>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row ">
+                        <div class="col-sm-9 col-xs-9">
+                            <h2 class="text-uppercase mb-0" style="color: aliceblue;">Pokemons</h2>
+                        </div>
+                        <div class="col-sm-3 col-xs-3">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" (click)="paginatePrev()">
+                                    <span aria-hidden="true">&laquo;</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" (click)="paginateNext()">
+                                    <span aria-hidden="true">&raquo;</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nombre</th>
+                                <th>Habilidades</th>
+                                <th>Altura</th>
+                                <th>Experienca Base</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let u of showList">
+                                <td><a (click)="select(u.name)"
+                                        class="btn btn-sm ml btn btn-outline-info btn-circle btn-lg btn-circle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32"
+                                            fill="currentColor" class="bi bi-plus" viewBox="0 0 24 24">
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg></a></td>
+                                <td class="text-muted">{{ u.name }}</td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li class="text-muted" style="text-decoration: none;"
+                                            *ngFor="let h of u.abilities">
+                                            {{h.ability.name}}
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="text-muted">{{ u.altura }} Pulgadas</td>
+                                <td class="text-muted">{{ u.baseExperience }} EXP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

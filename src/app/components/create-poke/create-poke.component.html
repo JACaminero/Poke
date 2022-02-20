@@ -1,0 +1,18 @@
+<div class="container">
+    <form [formGroup]="pokeForm" (ngSubmit)="submit()" class="form-con border border-light ">
+        <p class="h1 mb-4">Crear Favorito</p>
+        <div class="form-row">
+            <div class="col">
+                <input type="text" disabled class="form-control" formControlName="name" placeholder="Nombre" />
+                <div><small class="text-muted">Seleccione un nombre de la lista de abajo
+                        para añadir a favoritos</small></div>
+                <input type="text" class="form-control" formControlName="alias" placeholder="Alias" />
+            </div>
+            <div style="margin-top: 10px; width: 10%;">
+                <input [disabled]="pokeForm.invalid" style="width: 140px" class="btn btn-success btn-block"
+                    type="submit" value="Crear" />
+                <a style="margin-top: 5px; width: 140px" href="favorites" class="btn btn-info btn-block">Ver Favoritos</a>
+            </div>
+        </div>
+    </form>
+</div>

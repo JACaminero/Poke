@@ -1,0 +1,60 @@
+<div class="container">
+    <form [formGroup]="pokeForm" (ngSubmit)="submit()" class="form-con border border-light ">
+        <p class="h1 mb-4">Modificar Favorito</p>
+        <div class="form-row mb-4">
+            <div class="col">
+                <input type="text" disabled class="form-control" formControlName="name" placeholder="Nombre" />
+                <div><small class="text-muted">Seleccione un nombre de la lista de abajo
+                        para modificar su alias.</small></div>
+                <input type="text" class="form-control" formControlName="alias" placeholder="Alias" />
+            </div>
+            <div style="margin-top: 10px; width: 10%;">
+                <input [disabled]="pokeForm.invalid" class="btn btn-info btn-block" type="submit" value="Modificar" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row ">
+                        <div class="col-sm-9 col-xs-9">
+                            <h2 class="text-uppercase mb-0" style="color: aliceblue;">Pokemons</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nombre</th>
+                                <th>Alias</th>
+                                <th>Fecha de Creacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let u of showList">
+                                <td><a (click)="select(u.name, u.alias)"
+                                        class="btn btn-sm ml btn btn-outline-info btn-circle btn-lg btn-circle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32"
+                                            fill="currentColor" class="bi bi-plus" viewBox="0 0 24 24">
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg></a></td>
+                                <td class="text-muted">{{ u.name }}</td>
+                                <td class="text-muted">{{ u.alias }} </td>
+                                <td class="text-muted">{{ u.createdAt.substr(0,10) }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span *ngIf="showList == []"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
