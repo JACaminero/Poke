@@ -1,3 +1,10 @@
+Instruccionoes de ejecutado: 
+
+1. Descargar el proyecto en la direccion de su preferencia
+2. Ubicarse en el directorio del proyecto y ejecutar el comando npm install en la consola
+3. Ejecutar el comando ng serve en la consola.
+4. Acceder a la direccion http://localhost:4200/
+
 # Poke
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
