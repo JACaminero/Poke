@@ -5,7 +5,7 @@ import { PokeListComponent } from './components/poke-list/poke-list.component';
 
 const routes: Routes = [
 
-  { path: 'list', component: PokeListComponent },
+  { path: '', component: PokeListComponent },
   { path: 'favorites', component: ModifyFavComponent },
 ];
 
